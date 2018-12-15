@@ -1,0 +1,17 @@
+{
+    // Required
+    "manifest_version": 2,
+    "name": "Smart Call Nimble",
+    "version": "1.0",
+    "version_name": "0.1 Pre-Alpha",
+    "author": "Luke Avedon",
+
+    "default_locale": "en",
+    "description": "Move Smart Calling informaion to the top of the CRM page.",
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+       "128": "icon128.png"
+        }
+}
+    
