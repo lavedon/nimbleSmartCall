@@ -29,7 +29,7 @@
         {
             "matches": ["https://app.nimble.com/*"],
             "js": ["contentScript.js"],
-            "run_at": "document_idle"
+            "run_at": "document_end"
         }
     ],
     "page_action": {

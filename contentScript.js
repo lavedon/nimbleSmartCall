@@ -1,9 +1,21 @@
+debugger;
 var parentNode;
 var nodes;
 var opener;
 var prospectName;
+var numObserver;
+var numNode;
+var myNode;
+
 console.log("Smart Calling Extension GO!!!!!");
-prospectName = document.querySelectorAll('div.name')[0].innerText;
+try {
+
+    myNode = document.querySelectorAll('div.name')[0];
+    prospectName = myNode.innerText;
+} catch(err) {
+    console.log("Could not load name." + err);
+}
+
 function changeTitle() {
     console.log("changeTitle() called");
     document.body.style.backgroundColor="#f00";
@@ -19,13 +31,17 @@ function changeTitle() {
     }
 }
 
-//@TODO Use mutation observer to check if old character data = new character data.  If it does not --> run changeTitle.  See: https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord OR 
-//
-//  https://alexlouden.com/posts/2016-mutation-observer/
-// May have to listen to an ancestor and not "div.name", although div.name might work.
-// Consider observing this:
-// observer.observe(document.querySelector('div.mainSectionWrapper'), { childList : true, attributes: true, subtree: true, characterData: true});
+function checkNewContact() {
+    if (document.querySelectorAll('div.name')[0].innerText.includes(prospectName) === false) {
+        console.log("New Contact.");
+        changeTitle();
+        setTimeout(function(){checkNewContact();}, 5000);
+    } 
 
+    document.body.style.backgroundColor="#f2f2f2"
+    
+}
+
+setTimeout(function(){checkNewContact();}, 5000);
 changeTitle();
 
-setTimeout(function(){document.body.style.backgroundColor="#f2f2f2";}, 500);
