@@ -18,12 +18,12 @@ function changeTitle() {
     }
 }
 
-var mutationObserver = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-        console.log('mutation observed!');
-        changeTitle();
-    });
-});
+//@TODO Use mutation observer to check if old character data = new character data.  If it does not --> run changeTitle.  See: https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord OR 
+//
+//  https://alexlouden.com/posts/2016-mutation-observer/
+// May have to listen to an ancestor and not "div.name", although div.name might work.
+// Consider observing this:
+// observer.observe(document.querySelector('div.mainSectionWrapper'), { childList : true, attributes: true, subtree: true, characterData: true});
 
 changeTitle();
 
