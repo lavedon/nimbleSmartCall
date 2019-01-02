@@ -11,6 +11,7 @@ function changeTitle() {
         document.getElementById("contact_info").click();
         document.getElementById("Calling").click();
         opener = [...document.getElementsByClassName("valueHolder")].map(div => div.innerText).filter(txt => txt.includes("Smart Call Opener"));
+        opener = opener[0].replace("Smart Call Opener", "");
         document.querySelectorAll('div.name')[0].innerText = prospectName + ", " + opener;
         }
      catch(err) {
