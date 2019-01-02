@@ -6,16 +6,30 @@
     "version_name": "0.1 Pre-Alpha",
     "author": "Luke Avedon",
     "description": "Move Smart Calling informaion to the top of the CRM page.",
+    "commands": {
+        "scrape-profile": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+E",
+                "mac": "Command+Shift+E"
+            },
+            "description": "Add opener."
+        }
+    },
     "icons": {
         "16": "icon16.png",
         "48": "icon48.png",
        "128": "icon128.png"
         },
-    "permissions": ["activeTab", "declarativeContent"],
+    "background" : {
+        "scripts" : ["background.js"],
+        "persistent" : false
+    },
+    "permissions": ["activeTab", "declarativeContent", "tabs"],
     "content_scripts" : [
         {
             "matches": ["https://app.nimble.com/*"],
-            "js": ["contentScript.js"]
+            "js": ["contentScript.js"],
+            "run_at": "document_idle"
         }
     ],
     "page_action": {
